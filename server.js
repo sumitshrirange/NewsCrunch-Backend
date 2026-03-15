@@ -18,7 +18,16 @@ connectDB();
 const app = express();
 
 // ── Middleware ─────────────────────────────────────────────────────────────
-app.use(cors({ origin: env.clientUrl, credentials: true }));
+const allowedOrigins = ["http://localhost:5173"];
+if (env.clientUrl) {
+  allowedOrigins.push(env.clientUrl);
+}
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  }),
+);
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -37,5 +46,5 @@ app.use(errorHandler);
 
 // ── Start ───────────────────────────────────────────────────────────────────
 // app.listen(env.port, () => console.log(`Server is running on port ${env.port}`)),
-  
+
 module.exports = app;
