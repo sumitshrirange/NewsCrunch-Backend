@@ -29,7 +29,7 @@ Required JSON format:
   "keyPoints": ["point 1", "point 2", "point 3", "point 4"],
   "category": "one of: Politics, Technology, Business, Sports, Entertainment, Health, Science, World, Environment, Other",
   "sentiment": "one of: positive, negative, neutral",
-  "readTime": <estimated original read time in minutes as a number>
+  "readTime": <estimated read time of summarized article in minutes as a number>
 }`;
 
 /**
