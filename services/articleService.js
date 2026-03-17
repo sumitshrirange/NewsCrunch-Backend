@@ -23,7 +23,7 @@ const summarize = async (userId, url, thumbnail = "") => {
   if (!scraped.content || scraped.content.length < 100)
     throw Object.assign(
       new Error(
-        "Could not extract content. The page may require JavaScript or have bot protection.",
+        "Could not extract content. The page may require JavaScript or valid URL.",
       ),
       { status: 422 },
     );
